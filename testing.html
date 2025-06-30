@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GHOST CYBER HUNTER TEAM - Tim elit keamanan siber">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <title>GHOST CYBER HUNTER TEAM</title>
+    <link rel="icon" href="https://a.top4top.io/s_3443cj53q0.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #0ff;
+            --neon-purple: #9305ef;
+            --neon-green: #0f0;
+            --matrix-green: #20c20e;
+            --dark-bg: #000;
+            --panel-bg: rgba(10, 10, 10, 0.9);
+            --panel-border: 1px solid rgba(0, 255, 255, 0.3);
+            --text-glow: 0 0 5px rgba(0, 255, 255, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at 10% 20%, rgba(40, 0, 80, 0.2) 0%, transparent 20%), radial-gradient(circle at 90% 80%, rgba(0, 80, 120, 0.2) 0%, transparent 20%), linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(20, 0, 40, 0.8));
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Share Tech Mono', monospace;
+            color: #ccc;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.5);
+            animation: scan 4s linear infinite;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://files.catbox.moe/5r5e4r.gif') center/cover;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 100;
+            mix-blend-mode: screen;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--panel-bg);
+            border: var(--panel-border);
+            box-shadow: 0 0 15px var(--neon-purple);
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        header,
+        nav,
+        main,
+        footer {
+            padding: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-blue), 0 0 60px var(--neon-purple);
+        }
+
+        .header-glow {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            animation: glowPulse 1.5s infinite alternate, floatUpDown 6s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-blue);
+            }
+            100% {
+                text-shadow: 0 0 20px var(--neon-purple), 0 0 40px var(--neon-blue);
+            }
+        }
+
+        @keyframes floatUpDown {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            text-shadow: var(--text-glow);
+            animation: glowPulse 1.5s infinite alternate;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--neon-green);
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .marquee-container {
+            margin: 1.5rem 0;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+            border-top: 1px solid rgba(0, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .marquee {
+            display: flex;
+            width: 200%;
+            animation: cyberScroll 20s linear infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            align-items: center;
+        }
+
+        .marquee span {
+            font-weight: bold;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px #08f, 0 0 20px #08f;
+            font-size: 1.2rem;
+            margin: 0 2rem;
+            white-space: nowrap;
+        }
+
+        @keyframes cyberScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        h2 {
+            color: var(--neon-blue);
+            text-shadow: var(--text-glow);
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        p,
+        li {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '■';
+            color: var(--neon-blue);
+            position: absolute;
+            left: -1.5rem;
+            top: 0.2rem;
+            font-size: 0.8rem;
+        }
+
+        .dashboard,
+        .tools,
+        .terminal,
+        .fake-login,
+        .chat-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: var(--panel-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 0 12px var(--neon-blue);
+        }
+
+        .dashboard h3,
+        .tools h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .tools ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .tools li {
+            padding-left: 1.5rem;
+        }
+
+        .tools li::before {
+            content: '>>';
+            color: var(--neon-blue);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-blue);
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+        }
+
+        .team-member h3 {
+            color: var(--neon-green);
+            margin: 0.3rem 0;
+            font-size: 1.1rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(45deg, #000, #0f0);
+            border: 1px solid var(--neon-green);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: var(--neon-green);
+            font-weight: bold;
+            cursor: pointer;
+            margin: 1rem auto 2rem;
+            display: block;
+            text-shadow: 0 0 10px var(--neon-green);
+            transition: all 0.3s ease;
+            font-family: 'Share Tech Mono', monospace;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .toggle-btn:hover {
+            background: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .terminal-window {
+            background-color: #000;
+            color: var(--matrix-green);
+            font-family: 'Share Tech Mono', monospace;
+            padding: 1rem;
+            border-radius: 8px;
+            height: 250px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .terminal-window::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient( rgba(0, 30, 0, 0.1) 0px, rgba(0, 30, 0, 0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+        }
+
+        .terminal-input {
+            background-color: rgba(0, 20, 0, 0.5);
+            color: var(--matrix-green);
+            border: 1px solid var(--matrix-green);
+            padding: 0.8rem;
+            border-radius: 6px;
+            width: 100%;
+            font-family: 'Share Tech Mono', monospace;
+            outline: none;
+        }
+
+        .terminal-input:focus {
+            box-shadow: 0 0 10px var(--matrix-green);
+        }
+
+        .fake-login input[type="text"],
+        .fake-login input[type="password"] {
+            background-color: rgba(0, 20, 20, 0.5);
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            padding: 0.8rem;
+            border-radius: 6px;
+            width: 100%;
+            margin-bottom: 1rem;
+            font-family: 'Share Tech Mono', monospace;
+            outline: none;
+        }
+
+        .fake-login input:focus {
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .fake-login button {
+            background: var(--neon-blue);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--neon-blue);
+            transition: all 0.3s ease;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .fake-login button:hover {
+            background: #000;
+            color: var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, #000, var(--neon-blue));
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-shadow: 0 0 5px #fff;
+            margin: 1rem auto;
+            display: block;
+            font-family: 'Share Tech Mono', monospace;
+            box-shadow: 0 0 15px var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--neon-blue);
+        }
+
+        .warning-text {
+            color: #ff5555;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        .hacker-mode {
+            background-color: #000 !important;
+            color: var(--matrix-green) !important;
+        }
+
+        .hacker-mode .container {
+            background: rgba(0, 10, 0, 0.8) !important;
+            border: 1px solid var(--matrix-green) !important;
+            box-shadow: 0 0 15px var(--matrix-green) !important;
+        }
+
+        .hacker-mode h1,
+        .hacker-mode h2,
+        .hacker-mode p,
+        .hacker-mode li {
+            color: var(--matrix-green) !important;
+            text-shadow: 0 0 5px var(--matrix-green) !important;
+        }
+
+        .hacker-mode .terminal-window {
+            background-color: #000;
+            color: var(--matrix-green);
+            border: 1px solid var(--matrix-green);
+            box-shadow: 0 0 15px var(--matrix-green);
+        }
+
+        .hacker-mode .terminal-input {
+            background-color: rgba(0, 20, 0, 0.7);
+            color: var(--matrix-green);
+            border: 1px solid var(--matrix-green);
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        footer {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scan-line"></div>
+    <div class="glitch-overlay"></div>
+    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://a.top4top.io/s_3443cj53q0.png" alt="Logo GCHT" class="logo" />
+            </div>
+            <div class="header-glow">
+                <h1>GHOST CYBER HUNTER TEAM</h1>
+                <p class="tagline">-KEAMANAN ADALAH BENCANA-<br> -KERENTANAN ADALAH JALAN TERBUKA-<br> -TIDAK ADA SISTEM YANG AMAN-<br> -JIKA ITU MENYANGKUT SISTEM JARINGAN-</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">Tentang kami</a></li>
+                <li><a href="#members">Anggota</a></li>
+                <li><a href="#logo">Logo</a></li>
+                <li><a href="#peringatan">Peringatan</a></li>
+                <li><a href="#aliansi">Aliansi team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>💀 GHOST CYBER HUNTER TEAM 💀</span>
+                <span>🔥 CYBER SECURITY 🔥</span>
+                <span>🔐 ETHICAL HACKING 🔐</span>
+                <span>💻 PENETRATION TESTING 💻</span>
+                <span>🌐 BUG BOUNTY 🌐</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <section class="dashboard">
+                <h3>📊 Dashboard</h3>
+                <p>Status: <span class="warning-text">AKTIF</span> | Jumlah anggota: 130 | Server Aktif: 2 | Mode : 🔍 Recon Mode</p>
+            </section>
+
+            <section class="tools">
+                <h3>☣️ TOOLS ANDALAN TIM</h3>
+                <ul>
+                    <li>SQLMap - Untuk SQL Injection otomatis</li>
+                    <li>Nmap - Pemindaian jaringan & port</li>
+                    <li>Burp Suite - Interception proxy & eksploitasi manual</li>
+                    <li>Hydra - Brute force login</li>
+                    <li>Sublist3r - Subdomain enumeration</li>
+                    <li>Dirsearch - Pencarian direktori tersembunyi</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="about">
+                <h2>Tentang kami</h2>
+                <p>GHOST CYBER HUNTER TEAM [GCHT] adalah sebuah komunitas yang berfokus pada Cyber Attack, Bug Bounty, Penetration Testing, Eksplorasi Testing, dan Ethnical Hacking. TUJUAN KAMI ADALAH KEBEBASAN.</p>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="members">
+                <h2>Struktur Tim</h2>
+                <ul>
+                    <li><span class="warning-text">MONGKER</span> - INFORMATION, SOCIAL ENGINEER, PENGEMBANGAN TOOLS</li>
+                    <li><span class="warning-text">DKS</span> - FOUNDER, PENETRATION & WEB APP EXPLOITER</li>
+                    <li><span class="warning-text">JUBAH HITAM AGENCY</span> - FOUNDER</li>
+                    <li><span class="warning-text">ADAM NOVIECE</span> - WEB EXPLOITER</li>
+                    <li><span class="warning-text">BULLXPLOIT</span> - PENTESTING & ATTACKER</li>
+                    <li><span class="warning-text">RenXploit</span> - RECON SPECIALIST & PENGEMBANGAN TOOLS</li>
+                    <li><span class="warning-text">EUPHORIA</span> - WEB EXPLOITER & ATTACKER</li>
+                    <li><span class="warning-text">RAYANXPLOIT</span> - ATTACKER, SUBDOMAIN TAKEOVER</li>
+                    <li><span class="warning-text">SCORPIO</span> - WEB EXPLOITER & ATTACKER</li>
+                    <li><span class="warning-text">MR.PATRICK</span> - ATTACKER & PENTESTING</li>
+                    <li><span class="warning-text">KING.RIZXX</span> - EXPLOITASI SQLi</li>
+                    <li><span class="warning-text">MULYADI</span> - SUBDOMAIN, LOCK ON TARGET</li>
+                    <li><span class="warning-text">MR.ZeeoneOfc</span> - OSINT & DOXING</li>
+                    <li><span class="warning-text">MR.KRONCO</span> - EXPLOITER, OSINT FRAMEWORK</li>
+                    <li><span class="warning-text">GHOST77L</span> - MINING - EXPLOITER</li>
+                    <li><span class="warning-text">BLACK ANGEL</span> - DEWA NYA HARD & TROJAN</li>
+                    <li><span class="warning-text">LeXzTheRuller</span> - WEB EXPLOITER & PENTESTING</li>
+                    <li><span class="warning-text">DARK ASSASIN</span> - PENETRATION TESTING</li>
+                    <li><span class="warning-text">LANGZ [C.T.F]</span> - CAPTURE THE FLAG</li>
+                    <li><span class="warning-text">GALIRUS</span> - DEFACER & ATTACKER</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="logo">
+                <h2>Makna logo</h2>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="https://a.top4top.io/s_3443cj53q0.png" alt="LOGO GCHT" class="logo" style="width: 200px; height: 200px;" />
+                </div>
+                <p>Logo ini melambangkan bayangan (ghost) dan intelejen digital yang tersembunyi, dengan warna domain kelabu dan hitam sebagai simbol ketajaman dan kehati-hatian.</p>
+                <p><span class="warning-text">TENGKORAK BERJUBAH (GRIM REAPER)</span> melambangkan ketajaman, keberanian, dan kemampuan menembus sistem pertahanan jaringan (Pemburu hantu digital).</p>
+                <p><span class="warning-text">LINGKARAN LAUREL (DAUN KEMENANGAN)</span> simbol kejayaan, pencapaian, dan simbol kehormatan sebagai pejuang kebebasan dan persatuan.</p>
+                <p><span class="warning-text">BINTANG DENGAN WARNA KUNING DI TENGAH BAWAH</span> melambangkan cahaya, harapan, dan tujuan utama tim: menjadi bintang pelindung utama sistem jaringan.</p>
+                <p><span class="warning-text">Tulisan (GHOST CYBER HUNTER TEAM)</span> nama resmi tim, menunjukkan identitas kelompok dengan gaya huruf yang tajam dan berani.</p>
+                <p><span class="warning-text">Tulisan (GHOST CYBER ATTACK)</span> Slogan & motto tim, menggambarkan fokus utama: melakukan penyerangan sistem jaringan.</p>
+                <p><span class="warning-text">Warna (ABU-ABU, HITAM, PUTIH)</span> warna gelap melambangkan misteri dan kerahasiaan dalam dunia hacking, sementara putih dan abu-abu melembangkan netral dan etis.</p>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="aliansi">
+                <h2>Tim Aliansi Cyber</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://a.top4top.io/s_3443cj53q0.png" alt="G.C.H.T" />
+                        <h3>G.C.H.T</h3>
+                        <p>REAPER OF THE NET - Sang pencabut nyawa di dunia maya</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://a.top4top.io/p_3445kdh0s0.jpg" alt="Kepang jaya" />
+                        <h3>Kepang jaya</h3>
+                        <p>Ahli exploit zero-day dan pengabdi OSINT ekstrim.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://b.top4top.io/p_3445ho10r1.jpg" alt="P.T.C.J" />
+                        <h3>P.T.C.J</h3>
+                        <p>Sniper bug bounty yang jago bypass sistem keamanan tier 1.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://a.top4top.io/p_34687mdk56.jpg" alt="J.s.C ngoprek.xyz" />
+                        <h3>J.s.C ngoprek.xyz</h3>
+                        <p>Developer web dan ahli dalam merakit sebuah tools hacking.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://c.top4top.io/p_3445p184v2.jpg" alt="INDONESIA DARK NET" />
+                        <h3>INDONESIA DARK NET</h3>
+                        <p>Pemantau jaringan bawah tanah dan ahli dark web mining.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://d.top4top.io/p_3445o3hgv3.jpg" alt="PASURUAN SECTEAM" />
+                        <h3>PASURUAN SECTEAM</h3>
+                        <p>Spesialis malware dengan signature tersembunyi & polymorphic.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://e.top4top.io/p_34454qcqa4.jpg" alt="BLACKSQUAD" />
+                        <h3>BLACKSQUAD</h3>
+                        <p>Kecepatan scan-nya secepat nyali target yang drop tiba-tiba.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://f.top4top.io/p_3445no76p5.jpg" alt="PASUKAN TEKNOLOGI MAFIA" />
+                        <h3>PASUKAN TEKNOLOGI MAFIA</h3>
+                        <p>Pengacak DNS, spesialis teknik redirection dan poisoning.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://h.top4top.io/p_3445y5rgx7.jpg" alt="S.C.T" />
+                        <h3>S.C.T</h3>
+                        <p>Jago menyelinap ke dalam firewall dan keluar tanpa jejak.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://i.top4top.io/p_34457j7j08.jpg" alt="SQUAD BERANTAI" />
+                        <h3>SQUAD BERANTAI</h3>
+                        <p>Pengendali remote access tools & admin panel injection.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://j.top4top.io/p_3445sh8vj9.jpg" alt="ANONYMOUS" />
+                        <h3>ANONYMOUS</h3>
+                        <p>Master shell uploader dengan 1001 varian payload.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="container">
+            <section id="peringatan">
+                <h2>Peringatan dari kami</h2>
+                <p>Kami adalah <span class="warning-text">hasil dari pengkhianatan sistem</span>, bukan sekadar bayangan di balik layar. Selama <span class="warning-text">koruptor tetap dijaga</span> dan rakyat dibungkam, maka jaringan ini tidak akan pernah
+                    tenang. Mereka bilang kami musuh negara? Tidak — kami <span class="warning-text">musuh para penguasa rakus</span> yang memperkosa keadilan. Pemerintah sibuk memoles citra, sementara kami <span class="warning-text">membakar topeng mereka</span>                    di depan jutaan mata. Kami tidak takut penjara, karena <span class="warning-text">kebebasan kami hidup dalam kekacauan kalian</span>. Ingat baik-baik: <span class="warning-text">setiap ketikan kami adalah peluru</span>, dan setiap
+                    serangan kami adalah pesan.</p>
+
+                <div style="text-align: center; margin: 2rem 0;">
+                    <h1 style="font-size: 2rem; color: red; text-shadow: 0 0 15px #ff0000; margin: 1rem 0;">
+                        #MenUjU <span style="color:white;">iNdonEsia</span> <span style="color:red;">Cemas</span>
+                    </h1>
+                    <h1 style="font-size: 2rem; color: red; text-shadow: 0 0 15px #ff0000; margin: 1rem 0;">
+                        #KoruPtor <span style="color:white;">BerKuasA</span>
+                    </h1>
+                    <h1 style="font-size: 2rem; color: white; text-shadow: 0 0 15px #ff0000; margin: 1rem 0;">
+                        #BeLi <span style="color:red;">NyaWa </span><span style="color:white;">Di </span><span style="color:red;">peNgaDilaN </span>
+                    </h1>
+                </div>
+            </section>
+        </div>
+
+        <div class="container">
+            <button class="toggle-btn" onclick="toggleHackerMode()">💀 Toggle Hacker Mode</button>
+            <div class="social-buttons">
+                <button class="toggle-btn" onclick="enterTIKTOK()">TIKTOK</button>
+                <button class="toggle-btn" onclick="enterFACEBOOK()">FACEBOOK</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <section class="terminal">
+                <h3>TERMINAL</h3>
+                <div class="terminal-window" id="terminalWindow">[root@GCHT]# initializing systems... [+] Loading security protocols... [+] Connecting to darknet node... [!] Warning: Unauthorized access detected [>] Welcome, Ghost Hunter.
+                </div>
+                <input type="text" id="terminalInput" class="terminal-input" placeholder="Masukkan perintah...">
+            </section>
+        </div>
+
+        <div class="container">
+            <section class="chat-section">
+                <h3>🤖 GCHT Chat Bot</h3>
+                <div id="gchtChatBox" class="terminal-window">[SYSTEM] GhostBot v1.0 initialized [SYSTEM] Type your question...
+                </div>
+                <input type="text" id="gchtChatInput" class="terminal-input" placeholder="Tanya apa saja...">
+            </section>
+        </div>
+
+        <div class="container">
+            <section class="fake-login">
+                <h3>🔑 Akses Masuk Sistem</h3>
+                <form id="fakeLoginForm">
+                    <input type="text" placeholder="Username" required />
+                    <input type="password" placeholder="Password" required />
+                    <button type="submit">Masuk</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <button class="music-btn" onclick="toggleAudio()">🎵 Musik</button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GHOST CYBER HUNTER TEAM. ALL rights reserved</p>
+        </div>
+    </footer>
+
+    <audio id="bg-music" loop>
+        <source src="https://files.catbox.moe/9tgoys.m4a" type="audio/mp4">
+    </audio>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const matrixChars = "アカサタナハマヤラワGHOSTCYBERHUNTER0123456789#$%^&*()";
+        const chars = matrixChars.split("");
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(columns).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#0f0";
+            ctx.font = `${fontSize}px monospace`;
+
+            drops.forEach((y, i) => {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                ctx.fillText(text, x, y * fontSize);
+
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            });
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+
+        // Audio control
+        const audio = document.getElementById('bg-music');
+
+        function toggleAudio() {
+            audio.muted = !audio.muted;
+            alert(audio.muted ? 'Musik dimatikan' : 'Musik diaktifkan');
+        }
+
+        // Auto play audio after user interaction
+        document.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Audio play failed:', e));
+            }
+        });
+
+        // Fake login interaction
+        document.getElementById('fakeLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const term = document.getElementById('terminalWindow');
+            term.innerHTML += "\n[!] Peringatan: Akses tidak sah terdeteksi!";
+            term.innerHTML += "\n[!] Sistem keamanan level 5 diaktifkan";
+            term.innerHTML += "\n[*] Pelaku login palsu dicatat. Sistem dalam mode lockdown.";
+            term.scrollTop = term.scrollHeight;
+            alert('Akses ditolak. Sistem dalam mode lockdown!');
+        });
+
+        // Terminal interaction
+        const terminalInput = document.getElementById("terminalInput");
+        const terminalWindow = document.getElementById("terminalWindow");
+        const commandHistory = [];
+        let historyIndex = -1;
+
+        terminalInput.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                const cmd = terminalInput.value.trim();
+                if (cmd) {
+                    commandHistory.push(cmd);
+                    historyIndex = commandHistory.length;
+
+                    terminalWindow.innerHTML += `\n[root@GCHT]$ ${cmd}`;
+
+                    if (cmd.toLowerCase() === 'help') {
+                        terminalWindow.innerHTML += "\nAvailable commands: whoami, ls, clear, status, connect, exit";
+                    } else if (cmd.toLowerCase() === 'whoami') {
+                        terminalWindow.innerHTML += "\nuser: ghost_hunter";
+                    } else if (cmd.toLowerCase() === 'ls') {
+                        terminalWindow.innerHTML += "\nindex.html\nconfig.py\nteam_gcht.txt\naccess.log";
+                    } else if (cmd.toLowerCase() === 'clear') {
+                        terminalWindow.innerHTML = "[root@GCHT]# ";
+                    } else if (cmd.toLowerCase() === 'status') {
+                        terminalWindow.innerHTML += "\nSystem Status: ACTIVE\nSecurity Level: 5\nConnected Nodes: 12";
+                    } else if (cmd.toLowerCase() === 'connect') {
+                        terminalWindow.innerHTML += "\nConnecting to darknet...\n[+] Connection established\n[>] Welcome to the shadow network";
+                    } else if (cmd.toLowerCase() === 'exit') {
+                        terminalWindow.innerHTML += "\nLogging out...\nConnection terminated";
+                    } else {
+                        terminalWindow.innerHTML += `\ncommand not found: ${cmd}`;
+                    }
+
+                    terminalInput.value = "";
+                    terminalWindow.scrollTop = terminalWindow.scrollHeight;
+                }
+            } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                if (commandHistory.length > 0) {
+                    if (historyIndex > 0) historyIndex--;
+                    terminalInput.value = commandHistory[historyIndex] || '';
+                }
+            } else if (e.key === "ArrowDown") {
+                e.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    terminalInput.value = commandHistory[historyIndex] || '';
+                } else {
+                    historyIndex = commandHistory.length;
+                    terminalInput.value = '';
+                }
+            }
+        });
+
+        // Chat bot interaction
+        const chatData = {
+            "mongker": "👻 Mongker adalah dalang GCHT, spesialis tools, info, dan social engineering.",
+            "tools": "⚙️ Tools GCHT: SQLMap, Nmap, Hydra, Sublist3r, Dirsearch, Burp Suite.",
+            "anggota": "📋 Tim GCHT terdiri dari pentester, recon expert, dan web exploiter. Contoh: Jubah Hitam, RayanXploit, Adam Noviece, Mr.ZeeoneOfc, Dks, dll.",
+            "tujuan": "🎯 Tujuan GCHT adalah kebebasan digital, menentang sistem busuk dan korup.",
+            "halo": "👋 Halo juga, siap nyantai bersama Ghost Cyber Hunter!",
+            "siapa kamu": "🤖 Saya GhostBot, AI lokal untuk GCHT.",
+            "kamu bisa apa": "🧠 Saya bisa jawab info seputar tim, tools, misi, struktur, dan semangat untuk hacking.",
+            "tim aliansi": "🤝 Tim aliansi: Kepang Jaya, PTCJ, Pasuruan Secteam, J.s.C ngoprek.xyz, Indonesia Dark Net, BLACKSQUAD, dll.",
+            "recon": "🔍 Recon adalah proses pengumpulan informasi target — gunakan tools seperti Nmap, Sublist3r, Google Dorking.",
+            "sqli": "💉 SQL Injection: teknik menyuntikkan query SQL berbahaya, bisa diotomasi dengan SQLMap.",
+            "nmap": "📡 Nmap = Network Mapper. Gunakan untuk scanning port, service, OS, dan vulns.",
+            "hydra": "🔑 Hydra digunakan buat brute force login (FTP, SSH, HTTP, dll)."
+        };
+
+        const chatBox = document.getElementById("gchtChatBox");
+        const chatInput = document.getElementById("gchtChatInput");
+
+        chatInput.addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                const userInput = chatInput.value.toLowerCase().trim();
+                chatBox.innerHTML += `\n👤 Kamu: ${userInput}`;
+
+                let response = "❓ Aku tidak paham. Coba tanya tentang Mongker, tools, atau recon...";
+
+                for (let keyword in chatData) {
+                    if (userInput.includes(keyword)) {
+                        response = chatData[keyword];
+                        break;
+                    }
+                }
+
+                chatBox.innerHTML += `\n🤖 Bot: ${response}`;
+                chatInput.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+
+        // Hacker mode toggle
+        function toggleHackerMode() {
+            document.body.classList.toggle("hacker-mode");
+            const isHackerMode = document.body.classList.contains("hacker-mode");
+
+            // Update matrix color in hacker mode
+            if (isHackerMode) {
+                document.querySelector('.matrix-canvas').style.opacity = "0.6";
+            } else {
+                document.querySelector('.matrix-canvas').style.opacity = "0.3";
+            }
+        }
+
+        // Social media functions
+        function enterTIKTOK() {
+            window.open("https://vt.tiktok.com/ZSkDfKRv7/", "_blank");
+        }
+
+        function enterFACEBOOK() {
+            window.open("https://www.facebook.com/share/16qYr5qvKi/", "_blank");
+        }
+
+        // Initialize terminal with typing effect
+        function initTerminal() {
+            const messages = [
+                "GHOST CYBER HUNTER TEAM - TERMINAL",
+                "Initializing security protocols...",
+                "Establishing encrypted connection...",
+                "Accessing darknet nodes...",
+                "> Welcome, Ghost Hunter."
+            ];
+
+            let i = 0;
+
+            function typeTerminal() {
+                if (i < messages.length) {
+                    terminalWindow.innerHTML += (i > 0 ? '\n' : '') + messages[i];
+                    terminalWindow.scrollTop = terminalWindow.scrollHeight;
+                    i++;
+                    setTimeout(typeTerminal, 500);
+                }
+            }
+
+            terminalWindow.innerHTML = "";
+            typeTerminal();
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initTerminal();
+            audio.volume = 0.3;
+        });
+    </script>
+</body>
+</html>
